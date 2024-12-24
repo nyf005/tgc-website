@@ -3,59 +3,8 @@
 import React, { useState } from "react";
 import Image from "@/components/ui/Image";
 import { motion } from "framer-motion";
-import { images } from "@/lib/images";
 import Link from "next/link";
-
-const stories = [
-  {
-    client: "Global Manufacturing Corp",
-    industry: "Manufacturing",
-    location: "West Africa",
-    image: images.successStories.manufacturing,
-    challenge:
-      "Needed to establish manufacturing operations in West Africa while navigating complex regulatory environments.",
-    solution:
-      "Provided comprehensive market entry strategy and regulatory compliance framework.",
-    results: [
-      "Successfully established operations in 3 countries",
-      "30% reduction in setup time",
-      "Created 500+ local jobs",
-    ],
-    slug: "global-manufacturing",
-  },
-  {
-    client: "TechServe Solutions",
-    industry: "Technology",
-    location: "East Africa",
-    image: images.successStories.technology,
-    challenge:
-      "Sought to expand digital services across East African markets with local partnerships.",
-    solution:
-      "Developed partnership strategy and facilitated key stakeholder relationships.",
-    results: [
-      "Secured 5 strategic partnerships",
-      "Achieved 200% YoY growth",
-      "Reached 1M+ new users",
-    ],
-    slug: "techserve-solutions",
-  },
-  {
-    client: "AgriGrow International",
-    industry: "Agriculture",
-    location: "Southern Africa",
-    image: images.successStories.agriculture,
-    challenge:
-      "Required supply chain optimization for agricultural products across multiple countries.",
-    solution:
-      "Implemented integrated logistics network and distribution strategy.",
-    results: [
-      "40% reduction in logistics costs",
-      "Improved delivery times by 50%",
-      "Enhanced product quality control",
-    ],
-    slug: "agrigrow-international",
-  },
-];
+import { caseStudies } from "@/lib/data/case-studies";
 
 const SuccessStories = () => {
   const [activeStory, setActiveStory] = useState(0);
@@ -73,7 +22,7 @@ const SuccessStories = () => {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8 mb-16">
-        {stories.map((story, index) => (
+        {caseStudies.map((story, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +39,7 @@ const SuccessStories = () => {
             <div className="relative h-48 mb-6 overflow-hidden rounded-lg">
               <Image
                 src={story.image}
-                alt={`${story.client} - ${story.industry}`}
+                alt={`${story.title} - ${story.industry}`}
                 fill
                 className="object-cover transition-transform duration-500 
                   group-hover:scale-105"
@@ -99,12 +48,12 @@ const SuccessStories = () => {
             <div className="space-y-4">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {story.client}
+                  {story.title}
                 </h3>
                 <div className="flex items-center space-x-4 text-sm text-gray-600 font-light">
                   <span>{story.industry}</span>
                   <span>•</span>
-                  <span>{story.location}</span>
+                  <span>{story.region}</span>
                 </div>
               </div>
               <p className="text-gray-600 font-light leading-relaxed">
@@ -130,7 +79,7 @@ const SuccessStories = () => {
                 Solution Provided
               </h3>
               <p className="text-gray-600 font-light leading-relaxed">
-                {stories[activeStory].solution}
+                {caseStudies[activeStory].solution}
               </p>
             </div>
             <div>
@@ -138,7 +87,7 @@ const SuccessStories = () => {
                 Key Results
               </h3>
               <ul className="space-y-4">
-                {stories[activeStory].results.map((result, index) => (
+                {caseStudies[activeStory].results.map((result, index) => (
                   <li
                     key={index}
                     className="flex items-center text-gray-600 font-light"
@@ -150,7 +99,7 @@ const SuccessStories = () => {
               </ul>
             </div>
             <Link
-              href={`/insights/cases/${stories[activeStory].slug}`}
+              href={`/insights/cases/${caseStudies[activeStory].slug}`}
               className="px-8 py-4 bg-blue-800 text-white text-lg font-light 
               rounded hover:bg-blue-900 transition-colors duration-300 inline-block"
             >
@@ -159,8 +108,8 @@ const SuccessStories = () => {
           </div>
           <div className="relative h-[400px] rounded-lg overflow-hidden">
             <Image
-              src={stories[activeStory].image}
-              alt={stories[activeStory].client}
+              src={caseStudies[activeStory].image}
+              alt={caseStudies[activeStory].title}
               fill
               className="object-cover"
             />

@@ -3,13 +3,12 @@ import { images } from "@/lib/images";
 export const caseStudies = [
   {
     id: 1,
-    client: "Global Manufacturing Corp",
     title: "Global Manufacturing Corp",
-    slug: "global-manufacturing",
+    description: "Manufacturing operations expansion in West Africa",
     industry: "Manufacturing",
     region: "West Africa",
     image: images.successStories.manufacturing,
-    description: "Manufacturing operations expansion in West Africa",
+    slug: "global-manufacturing",
     challenge:
       "Needed to establish manufacturing operations in West Africa while navigating complex regulatory environments.",
     solution:
@@ -22,13 +21,12 @@ export const caseStudies = [
   },
   {
     id: 2,
-    client: "TechServe Solutions",
     title: "TechServe Solutions",
-    slug: "techserve-solutions",
+    description: "Digital services expansion across East Africa",
     industry: "Technology",
     region: "East Africa",
     image: images.successStories.technology,
-    description: "Digital services expansion across East Africa",
+    slug: "techserve-solutions",
     challenge:
       "Sought to expand digital services across East African markets with local partnerships.",
     solution:
@@ -41,13 +39,12 @@ export const caseStudies = [
   },
   {
     id: 3,
-    client: "AgriGrow International",
     title: "AgriGrow International",
-    slug: "agrigrow-international",
+    description: "Supply chain optimization across Southern Africa",
     industry: "Agriculture",
     region: "Southern Africa",
     image: images.successStories.agriculture,
-    description: "Supply chain optimization across Southern Africa",
+    slug: "agrigrow-international",
     challenge:
       "Required supply chain optimization for agricultural products across multiple countries.",
     solution:
