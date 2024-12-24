@@ -1,0 +1,171 @@
+/* Update the primary colors to be more vibrant */
+:root {
+  --primary-color: #ff6b6b; /* Vibrant coral red */
+  --secondary-color: #4ecdc4; /* Bright turquoise */
+  --accent-color: #ffe66d; /* Sunny yellow */
+  --background-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+}
+
+/* Style the header specifically */
+.header {
+  background: var(--background-gradient);
+  color: white;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+/* Add a class for scrolled state */
+.header-scrolled {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Update link colors for scrolled state */
+.header-scrolled .nav-link {
+  color: var(--primary-color);
+}
+
+.header-scrolled .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Style buttons */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Add subtle color transitions to links */
+a {
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Add colorful card backgrounds */
+.card {
+  background: white;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-left-color: var(--secondary-color);
+}
+
+/* Add these navbar-specific styles after your existing styles */
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Add this to your globals.css */
+main {
+  padding-top: 5rem; /* Adjust this value based on your navbar height */
+}
+
+/* Update just the navbar positioning in your existing styles */
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+/* Ensure content doesn't hide behind the navbar */
+body {
+  padding-top: 5rem; /* Adjust based on your navbar height */
+  margin: 0;
+}
+
+/* Add these section styles */
+.section-primary {
+  background-color: #f8fafc; /* Light gray background */
+  border-top: 1px solid #e2e8f0;
+}
+
+.section-accent {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.95)
+    ),
+    linear-gradient(to right, #1e40af, #3b82f6); /* Subtle blue gradient */
+}
+
+.section-dark {
+  background-color: #1e3a8a; /* Deep blue */
+  color: white;
+}
+
+.section-light {
+  background-color: white;
+  border-top: 4px solid #3b82f6; /* Blue accent line */
+}
+
+/* Add subtle hover effects for interactive elements */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add accent colors for highlights */
+.text-accent {
+  color: #3b82f6; /* Bright blue */
+}
+
+.text-accent-secondary {
+  color: #6366f1; /* Indigo */
+}
+
+/* Add border accents */
+.border-accent {
+  border-color: #3b82f6;
+}
+
+.border-accent-secondary {
+  border-color: #6366f1;
+}
+
+/* Remove these footer styles completely */
+footer {
+  position: relative;
+}
