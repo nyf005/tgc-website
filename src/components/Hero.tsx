@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "@/components/ui/Image";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { images } from "@/lib/images";
@@ -33,10 +33,10 @@ const Hero = () => {
       >
         <Image
           src={images.office.main}
-          alt="Background"
+          alt="African business district"
           fill
           className="object-cover"
-          priority
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/50" />
       </motion.div>

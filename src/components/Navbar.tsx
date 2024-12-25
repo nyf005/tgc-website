@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/constants";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -19,15 +19,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Function to check if a path is active
-  const isActivePath = (path) => {
-    if (path === "/") {
-      return pathname === "/";
-    }
-    // Check if pathname starts with the path (for nested routes)
-    return pathname.startsWith(path);
-  };
 
   // Updated navLinks to include all footer destinations
   const navLinks = [

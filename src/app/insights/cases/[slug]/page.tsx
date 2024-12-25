@@ -1,10 +1,21 @@
-import React from "react";
+import { notFound } from "next/navigation";
+import { caseStudies } from "@/lib/data/case-studies";
 import Image from "next/image";
 import Link from "next/link";
-import { caseStudies } from "@/lib/data/case-studies";
-import { notFound } from "next/navigation";
 
-export default function CaseStudy({ params }: { params: { slug: string } }) {
+export function generateStaticParams() {
+  return caseStudies.map((study) => ({
+    slug: study.slug,
+  }));
+}
+
+export default async function CaseStudy({
+  params,
+  searchParams: _searchParams,
+}: {
+  params: { slug: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
   const study = caseStudies.find((s) => s.slug === params.slug);
 
   if (!study) {
@@ -94,7 +105,6 @@ export default function CaseStudy({ params }: { params: { slug: string } }) {
             </Link>
           </div>
         </div>
-        
       </div>
     </div>
   );

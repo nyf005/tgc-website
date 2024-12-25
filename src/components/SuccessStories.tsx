@@ -16,7 +16,7 @@ const SuccessStories = () => {
           Client Success <span className="font-semibold">Stories</span>
         </h2>
         <p className="text-xl text-gray-600 font-light leading-relaxed">
-          We've helped numerous organizations achieve remarkable results across
+          We&apos;ve helped numerous organizations achieve remarkable results across
           African markets.
         </p>
       </div>
