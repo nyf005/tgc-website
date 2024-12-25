@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Image from "@/components/ui/Image";
 import { motion } from "framer-motion";
 import { images } from "@/lib/images";
+import { useAnimationSync } from "@/hooks/useAnimationSync";
+import { HeroBackground } from "@/components/ui/BackgroundShapes";
 
 const categories = ["All", "Market Analysis", "Industry Trends", "Case Studies", "Research"];
 
@@ -43,18 +45,41 @@ const insights = [
 ];
 
 export default function InsightsPage() {
+  const isVisible = useAnimationSync();
   const [activeCategory, setActiveCategory] = useState("All");
+
+  const containerAnimation = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
 
   const filteredInsights = activeCategory === "All" 
     ? insights
     : insights.filter(insight => insight.category === activeCategory);
 
   return (
-    <main className="pt-20">
+    <main>
       {/* Hero Section */}
-      <section className="bg-white">
-        <div className="container mx-auto px-6 py-24">
-          <div className="max-w-4xl">
+      <section className="relative bg-white overflow-hidden">
+        <HeroBackground />
+        <motion.div
+          className="container mx-auto px-6 min-h-[480px] flex items-center"
+          initial="hidden"
+          animate={isVisible ? "show" : "hidden"}
+          variants={containerAnimation}
+        >
+          <motion.div className="max-w-4xl relative z-10" variants={itemAnimation}>
             <h1 className="text-5xl font-light text-gray-900 mb-8">
               Insights & <span className="font-semibold">Perspectives</span>
             </h1>
@@ -62,8 +87,8 @@ export default function InsightsPage() {
               Expert analysis, industry trends, and strategic insights on doing
               business in African markets.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Categories */}
@@ -98,9 +123,9 @@ export default function InsightsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group cursor-pointer"
+                className="group cursor-pointer bg-white hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden"
               >
-                <div className="relative h-64 mb-6 overflow-hidden rounded-lg">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={insight.image}
                     alt={insight.title}
@@ -108,8 +133,8 @@ export default function InsightsPage() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4 text-sm text-gray-600 font-light">
+                <div className="p-6">
+                  <div className="flex items-center space-x-4 text-sm text-gray-600 font-light mb-4">
                     <span>{insight.category}</span>
                     <span>•</span>
                     <span>{insight.date}</span>
@@ -117,10 +142,10 @@ export default function InsightsPage() {
                     <span>{insight.readTime}</span>
                   </div>
                   <h2 className="text-2xl font-light text-gray-900 group-hover:text-blue-800 
-                    transition-colors duration-300">
+                    transition-colors duration-300 mb-4">
                     {insight.title}
                   </h2>
-                  <p className="text-gray-600 font-light leading-relaxed">
+                  <p className="text-gray-600 font-light leading-relaxed mb-6">
                     {insight.excerpt}
                   </p>
                   <div className="inline-flex items-center text-blue-800 font-light group-hover:translate-x-2 

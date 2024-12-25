@@ -47,7 +47,7 @@ a {
 }
 
 .pt-nav {
-  padding-top: 5rem;
+  padding-top: 5rem; /* Should match navbar height */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -74,4 +74,18 @@ a {
   p {
     @apply text-body-md leading-relaxed;
   }
+}
+
+.bg-grid-slate-100 {
+  background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+}
+
+.bg-grid-slate-100\/\[0\.05\] {
+  background-image: linear-gradient(
+      to right,
+      rgb(241 245 249 / 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(241 245 249 / 0.05) 1px, transparent 1px);
 }

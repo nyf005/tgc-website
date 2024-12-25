@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useAnimationSync } from "@/hooks/useAnimationSync";
+import { HeroBackground } from "@/components/ui/BackgroundShapes";
 
 const offices = [
   {
@@ -61,16 +62,17 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="pt-20">
+    <main>
       {/* Hero Section */}
-      <section className="bg-white">
+      <section className="relative bg-white overflow-hidden">
+        <HeroBackground />
         <motion.div
-          className="container mx-auto px-6 py-24"
+          className="container mx-auto px-6 min-h-[480px] flex items-center"
           initial="hidden"
           animate={isVisible ? "show" : "hidden"}
           variants={containerAnimation}
         >
-          <motion.div className="max-w-4xl" variants={itemAnimation}>
+          <motion.div className="max-w-4xl relative z-10" variants={itemAnimation}>
             <h1 className="text-5xl font-light text-gray-900 mb-8">
               Let&apos;s Start a <span className="font-semibold">Conversation</span>
             </h1>
@@ -105,8 +107,8 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                        focus:border-blue-800 font-light"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                        focus:border-blue-800 font-light transition-all duration-300"
                       required
                     />
                   </div>
@@ -120,8 +122,8 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, company: e.target.value })
                       }
-                      className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                        focus:border-blue-800 font-light"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                        focus:border-blue-800 font-light transition-all duration-300"
                       required
                     />
                   </div>
@@ -138,8 +140,8 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                        focus:border-blue-800 font-light"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                        focus:border-blue-800 font-light transition-all duration-300"
                       required
                     />
                   </div>
@@ -153,8 +155,8 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                        focus:border-blue-800 font-light"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                        focus:border-blue-800 font-light transition-all duration-300"
                     />
                   </div>
                 </div>
@@ -168,8 +170,8 @@ export default function ContactPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, interest: e.target.value })
                     }
-                    className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                      focus:border-blue-800 font-light bg-white"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                      focus:border-blue-800 font-light bg-white transition-all duration-300"
                   >
                     <option>Market Entry</option>
                     <option>Strategic Advisory</option>
@@ -188,8 +190,8 @@ export default function ContactPage() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-200 rounded focus:outline-none 
-                      focus:border-blue-800 font-light"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none 
+                      focus:border-blue-800 font-light transition-all duration-300"
                     required
                   />
                 </div>
