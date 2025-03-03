@@ -26,6 +26,8 @@ export const values: Value[] = [
   },
 ];
 
+export const team: TeamMember[] = [];
+
 export const mission = {
   title: "Our Mission",
   description: "TGC is committed to driving innovation, engineering excellence, and sustainable development worldwide. As a proud member of the World Trade Center Delaware, we leverage our global network and expertise to bring cutting-edge American technologies and solutions to African markets, focusing on healthcare and environmental sustainability."
