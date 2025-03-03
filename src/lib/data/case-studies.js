@@ -26,7 +26,7 @@ export const caseStudies = [
     industry: "Technology",
     region: "East Africa",
     image: images.successStories.technology,
-    slug: "techserve-solutions",
+    slug: "techserve-digital-transformation",
     challenge:
       "Sought to expand digital services across East African markets with local partnerships.",
     solution:
@@ -44,7 +44,7 @@ export const caseStudies = [
     industry: "Agriculture",
     region: "Southern Africa",
     image: images.successStories.agriculture,
-    slug: "agrigrow-international",
+    slug: "agrigrow-market-expansion",
     challenge:
       "Required supply chain optimization for agricultural products across multiple countries.",
     solution:

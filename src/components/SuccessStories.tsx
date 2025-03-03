@@ -56,9 +56,30 @@ const SuccessStories = () => {
                   <span>{story.region}</span>
                 </div>
               </div>
-              <p className="text-gray-600 font-light leading-relaxed">
+              <p className="text-gray-600 font-light leading-relaxed mb-4">
                 {story.challenge}
               </p>
+              <Link 
+                href={`/insights/${story.slug}`}
+                className="text-blue-800 text-sm font-medium inline-flex items-center hover:text-blue-700 transition-all"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Read Case Study
+                <svg
+                  className="w-4 h-4 ml-1 transform transition-transform group-hover:translate-x
+                  duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
             </div>
           </motion.div>
         ))}
@@ -99,7 +120,7 @@ const SuccessStories = () => {
               </ul>
             </div>
             <Link
-              href={`/insights/cases/${caseStudies[activeStory].slug}`}
+              href={`/insights/${caseStudies[activeStory].slug}`}
               className="px-8 py-4 bg-blue-800 text-white text-lg font-light 
               rounded hover:bg-blue-900 transition-colors duration-300 inline-block"
             >

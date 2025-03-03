@@ -25,43 +25,29 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     {
       href: "/about",
-      label: "Who We Are",
-      matches: ["/about", "/about#team"],
-      dropdown: [
-        { label: "About Us", href: "/about" },
-        { label: "Our Team", href: "/about#team" },
-        { label: "Careers", href: "/careers" },
-      ],
+      label: "About Us",
+      matches: ["/about", "/careers"],
     },
     {
       href: "/services",
       label: "Services",
       matches: [
         "/services",
-        "/services#market-entry",
-        "/services#advisory",
-        "/services#research",
+        "/services#strategic-business-development",
+        "/services#international-representation",
+        "/services#access-to-resources",
       ],
       dropdown: [
-        { label: "Market Entry", href: "/services#market-entry" },
-        { label: "Strategic Advisory", href: "/services#advisory" },
-        { label: "Implementation", href: "/services#implementation" },
-        { label: "Research", href: "/services#research" },
+        { label: "Strategic Business Development", href: "/services#strategic-business-development" },
+        { label: "International Representation", href: "/services#international-representation" },
+        { label: "Access to Resources", href: "/services#access-to-resources" },
       ],
     },
     {
       href: "/insights",
-      label: "Insights",
+      label: "Case Studies",
       matches: [
         "/insights",
-        "/insights/industries",
-        "/insights/regions",
-        "/insights/cases",
-      ],
-      dropdown: [
-        { label: "Industries", href: "/insights/industries" },
-        { label: "Regions", href: "/insights/regions" },
-        { label: "Case Studies", href: "/insights/cases" },
       ],
     },
     {

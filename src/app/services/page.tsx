@@ -4,113 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useAnimationSync } from "@/hooks/useAnimationSync";
 import { HeroBackground } from "@/components/ui/BackgroundShapes";
-
-const services = [
-  {
-    category: "Market Entry & Expansion",
-    description: "Strategic solutions for companies entering African markets",
-    services: [
-      {
-        title: "Market Assessment",
-        description: "Comprehensive analysis of market opportunities, risks, and competitive landscape",
-        features: [
-          "Market size and growth potential",
-          "Competitive analysis",
-          "Regulatory environment",
-          "Risk assessment",
-        ],
-      },
-      {
-        title: "Entry Strategy",
-        description: "Customized market entry strategies aligned with your business objectives",
-        features: [
-          "Market entry models",
-          "Partnership strategies",
-          "Route-to-market planning",
-          "Investment structuring",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Strategic Advisory",
-    description: "Expert guidance for sustainable growth and operational excellence",
-    services: [
-      {
-        title: "Business Development",
-        description: "Comprehensive support for business growth and expansion",
-        features: [
-          "Growth strategy",
-          "Business model optimization",
-          "Strategic partnerships",
-          "Performance improvement",
-        ],
-      },
-      {
-        title: "Operational Excellence",
-        description: "Enhancing operational efficiency and effectiveness",
-        features: [
-          "Process optimization",
-          "Supply chain management",
-          "Quality management",
-          "Cost optimization",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Implementation",
-    description: "Turn strategy into reality with our comprehensive implementation services",
-    services: [
-      {
-        title: "Project Management",
-        description: "End-to-end project management ensuring successful execution",
-        features: [
-          "Project planning and execution",
-          "Risk management",
-          "Stakeholder coordination",
-          "Progress monitoring and reporting",
-        ],
-      },
-      {
-        title: "Change Management",
-        description: "Facilitating smooth transitions and organizational alignment",
-        features: [
-          "Change readiness assessment",
-          "Stakeholder engagement",
-          "Training and capability building",
-          "Cultural transformation",
-        ],
-      },
-    ],
-  },
-  {
-    category: "Research & Analysis",
-    description: "Data-driven insights to inform strategic decision-making",
-    services: [
-      {
-        title: "Market Intelligence",
-        description: "Comprehensive analysis of market dynamics and trends",
-        features: [
-          "Market size and segmentation",
-          "Consumer behavior analysis",
-          "Competitor benchmarking",
-          "Industry trend analysis",
-        ],
-      },
-      {
-        title: "Economic Research",
-        description: "In-depth analysis of economic factors and indicators",
-        features: [
-          "Economic impact assessment",
-          "Policy analysis",
-          "Investment climate analysis",
-          "Regional economic trends",
-        ],
-      },
-    ],
-  },
-];
+import { services } from "@/data/services";
+import Link from "next/link";
 
 export default function ServicesPage() {
   const isVisible = useAnimationSync();
@@ -201,9 +96,9 @@ export default function ServicesPage() {
                     transition={{ duration: 0.5, delay: index * 0.2 }}
                     viewport={{ once: true }}
                     className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg 
-                      transition-all duration-300 group"
+                      transition-all duration-300 group flex flex-col h-full"
                   >
-                    <div className="p-8">
+                    <div className="p-8 flex-grow">
                       <div className="flex items-center mb-6">
                         <div className="w-12 h-12 rounded-lg bg-stone-50 flex items-center justify-center mr-4 
                           group-hover:bg-blue-50 transition-colors duration-300">
@@ -225,7 +120,7 @@ export default function ServicesPage() {
                           {service.title}
                         </h3>
                       </div>
-                      <p className="text-gray-600 font-light mb-8 min-h-[60px]">
+                      <p className="text-gray-600 font-light mb-8">
                         {service.description}
                       </p>
                       <ul className="space-y-4 mb-8">
@@ -253,7 +148,7 @@ export default function ServicesPage() {
                       </ul>
                     </div>
                     <div className="px-8 py-6 bg-gray-50 group-hover:bg-stone-50 transition-colors duration-300">
-                      <button className="text-blue-800 font-light group-hover:text-blue-900 
+                      <Link href={`/services/${service.slug}`} className="text-blue-800 font-light group-hover:text-blue-900 
                         transition-colors duration-300 inline-flex items-center">
                         Explore {service.title}
                         <svg
@@ -270,7 +165,7 @@ export default function ServicesPage() {
                             d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </svg>
-                      </button>
+                      </Link>
                     </div>
                   </motion.div>
                 ))}
@@ -320,18 +215,22 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <button className="px-8 py-4 bg-white text-blue-800 text-lg font-light 
+              <Link 
+                href="/contact#form"
+                className="px-8 py-4 bg-white text-blue-800 text-lg font-light 
                 rounded-lg hover:bg-blue-50 transition-all duration-300 
-                hover:shadow-lg w-full sm:w-auto">
+                hover:shadow-lg w-full sm:w-auto flex items-center justify-center">
                 Schedule a Consultation
-              </button>
-              <button className="px-8 py-4 border border-blue-200/30 text-white text-lg 
+              </Link>
+              <Link
+                href="/contact#form"
+                className="px-8 py-4 border border-blue-200/30 text-white text-lg 
                 font-light rounded-lg hover:border-blue-200/50 hover:bg-white/5 
-                transition-all duration-300 group w-full sm:w-auto">
-                Download Our Brochure
+                transition-all duration-300 group w-full sm:w-auto flex items-center justify-center">
+                Contact Us
                 <svg
-                  className="w-4 h-4 ml-2 inline-block transform transition-transform 
-                    duration-300 group-hover:translate-y-0.5"
+                  className="w-4 h-4 ml-2 transform transition-transform 
+                    duration-300 group-hover:translate-x-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -340,10 +239,10 @@ export default function ServicesPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </button>
+              </Link>
             </motion.div>
           </div>
         </motion.div>
