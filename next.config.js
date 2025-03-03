@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
-    // Disable ESLint during build
+    // Disable ESLint during build - this should stop ESLint errors from failing the build
     ignoreDuringBuilds: true,
   },
   typescript: {
