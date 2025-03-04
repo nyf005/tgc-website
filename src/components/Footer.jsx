@@ -46,8 +46,15 @@ export default function Footer() {
   return (
     <footer className="bg-white mt-auto">
       {/* Main Footer Content */}
-      <div className="bg-gradient-to-br from-blue-50 via-white to-blue-50 border-t border-blue-100">
-        <div className="container mx-auto px-4 md:px-8 pt-12 pb-6">
+      <div className="bg-gradient-to-br from-primary-50 via-white to-primary-50 border-t border-primary-100 relative overflow-hidden">
+        {/* Background accent shapes */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-50 pointer-events-none">
+          <div className="absolute -left-24 -top-24 w-48 h-48 rounded-full bg-primary-100/50"></div>
+          <div className="absolute right-12 top-36 w-24 h-24 rounded-full bg-secondary-100/40"></div>
+          <div className="absolute left-1/3 bottom-12 w-32 h-32 rounded-full bg-accent-100/30"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-8 pt-12 pb-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Logo and Info Section */}
             <div className="lg:col-span-4 space-y-4">
@@ -188,14 +195,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white mt-4">
-          <div className="container mx-auto px-4 md:px-8 py-4">
+        <div className="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 text-white mt-4 relative overflow-hidden">
+          {/* Add subtle dot pattern */}
+          <div className="absolute inset-0 opacity-10" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='10' cy='10' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            }}>
+          </div>
+          <div className="container mx-auto px-4 md:px-8 py-4 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-3">
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-1 text-sm font-light">
-                <Link href="/privacy" className="hover:text-blue-100 transition-colors duration-300">
+                <Link href="/privacy" className="hover:text-secondary-300 transition-colors duration-300">
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="hover:text-blue-100 transition-colors duration-300">
+                <Link href="/terms" className="hover:text-secondary-300 transition-colors duration-300">
                   Terms of Use
                 </Link>
               </div>

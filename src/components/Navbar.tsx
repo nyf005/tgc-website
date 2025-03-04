@@ -64,9 +64,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 header bg-white ${
-        isScrolled ? "shadow-md" : "shadow-sm"
-      }`}
+      className={`sticky top-0 z-50 header ${
+        isScrolled ? "shadow-md bg-white/95 backdrop-blur-md" : "bg-white/90 backdrop-blur-sm"
+      } transition-all duration-300`}
     >
       <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-7xl">
         <div className="flex items-center justify-between h-20">
@@ -97,11 +97,11 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`text-sm tracking-wide transition-all duration-300 hover:text-blue-800 
-                    inline-flex items-center whitespace-nowrap  ${
+                  className={`text-sm tracking-wide transition-all duration-300 hover:text-primary-600 
+                    inline-flex items-center whitespace-nowrap ${
                       link.matches?.some((path) => pathname.startsWith(path)) ||
                       pathname === link.href
-                        ? "text-blue-800 font-semibold underline decoration-2 decoration-blue-800 underline-offset-8"
+                        ? "text-primary-700 font-semibold after:block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-500 after:rounded-full"
                         : "text-gray-600 font-light"
                     }`}
                   onMouseEnter={() =>
@@ -146,8 +146,9 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact#form"
-              className="ml-8 px-6 py-2 bg-blue-800 text-white text-sm font-light 
-              tracking-wide rounded hover:bg-blue-900 transition-colors duration-300"
+              className="ml-8 px-6 py-2.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-sm font-medium
+              tracking-wide rounded-lg shadow-lg shadow-primary-600/20 hover:shadow-primary-600/30 hover:-translate-y-0.5
+              transition-all duration-300 border border-primary-500/20"
             >
               Get Started
             </Link>
@@ -191,10 +192,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`block py-3 text-sm tracking-wide transition-all duration-300 
-                    hover:text-blue-800 ${
+                    hover:text-primary-600 ${
                       link.matches?.some((path) => pathname.startsWith(path)) ||
                       pathname === link.href
-                        ? "text-blue-800 font-semibold underline decoration-2 decoration-blue-800 underline-offset-8"
+                        ? "text-primary-700 font-semibold border-l-2 border-blue-500 pl-2"
                         : "text-gray-600 font-light"
                     }`}
                   onClick={() => {
@@ -243,8 +244,9 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact#form"
-              className="block w-full mt-4 px-6 py-3 bg-blue-800 text-white text-sm 
-              font-light tracking-wide rounded hover:bg-blue-900 transition-colors duration-300"
+              className="block w-full mt-4 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-sm 
+              font-medium tracking-wide rounded-lg shadow-lg shadow-primary-600/20 
+              border border-primary-500/20 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Started

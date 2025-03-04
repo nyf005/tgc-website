@@ -1,23 +1,31 @@
-/* Update the primary colors to be more vibrant */
+/* Import Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define color scheme */
 :root {
-  --primary-color: #ff6b6b; /* Vibrant coral red */
-  --secondary-color: #4ecdc4; /* Bright turquoise */
-  --accent-color: #ffe66d; /* Sunny yellow */
-  --background-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  --primary-color: #1a70f7; /* Blue */
+  --secondary-color: #e69012; /* Orange */
+  --accent-color: #1ea972; /* Green */
+  --background-gradient: linear-gradient(135deg, #1359e3 0%, #1a70f7 100%);
+  --secondary-gradient: linear-gradient(135deg, #f0ad25 0%, #cb6d0d 100%);
+  --accent-gradient: linear-gradient(135deg, #3cc88e 0%, #1ea972 100%);
 }
 
-/* Style the header specifically */
+/* Style the header */
 .header {
-  background: var(--background-gradient);
-  color: white;
+  background: white;
+  color: var(--primary-color);
   padding: 0.5rem 1rem;
   width: 100%;
+  transition: all 0.3s ease;
 }
 
 /* Add a class for scrolled state */
 .header-scrolled {
   background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Update link colors for scrolled state */
@@ -33,16 +41,51 @@
 .button {
   background-color: var(--primary-color);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(26, 112, 247, 0.2);
 }
 
 .button:hover {
-  background-color: var(--accent-color);
+  background-color: #1359e3;
   transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(26, 112, 247, 0.3);
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(230, 144, 18, 0.2);
+}
+
+.button-secondary:hover {
+  background-color: #cb6d0d;
+  box-shadow: 0 6px 8px rgba(230, 144, 18, 0.3);
+}
+
+.button-accent {
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 6px rgba(30, 169, 114, 0.2);
+}
+
+.button-accent:hover {
+  background-color: #158759;
+  box-shadow: 0 6px 8px rgba(30, 169, 114, 0.3);
+}
+
+.button-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  box-shadow: none;
+}
+
+.button-outline:hover {
+  background-color: rgba(26, 112, 247, 0.1);
+  box-shadow: none;
 }
 
 /* Add subtle color transitions to links */
@@ -55,17 +98,69 @@ a:hover {
   color: var(--secondary-color);
 }
 
-/* Add colorful card backgrounds */
+/* Add colorful card styles */
 .card {
   background: white;
-  border-left: 4px solid var(--primary-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(26, 112, 247, 0.1);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-left-color: var(--secondary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(26, 112, 247, 0.2);
+}
+
+.card:hover::before {
+  width: 8px;
+}
+
+.card-secondary::before {
+  background: var(--secondary-color);
+}
+
+.card-secondary {
+  border-color: rgba(230, 144, 18, 0.1);
+}
+
+.card-secondary:hover {
+  border-color: rgba(230, 144, 18, 0.2);
+}
+
+.card-accent::before {
+  background: var(--accent-color);
+}
+
+.card-accent {
+  border-color: rgba(30, 169, 114, 0.1);
+}
+
+.card-accent:hover {
+  border-color: rgba(30, 169, 114, 0.2);
+}
+
+.card-gradient::before {
+  display: none;
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+  border: none;
 }
 
 /* Add these navbar-specific styles after your existing styles */
@@ -115,26 +210,85 @@ body {
 
 /* Add these section styles */
 .section-primary {
-  background-color: #f8fafc; /* Light gray background */
-  border-top: 1px solid #e2e8f0;
+  background-color: #eef7ff; /* Light blue background */
+  border-top: 2px solid #bce0ff;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 50%, rgba(26, 112, 247, 0.08) 0%, rgba(26, 112, 247, 0) 50%);
+  pointer-events: none;
+}
+
+.section-secondary {
+  background-color: #fef9ec; /* Light yellow background */
+  border-top: 2px solid #fbefc9;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 50%, rgba(230, 144, 18, 0.08) 0%, rgba(230, 144, 18, 0) 50%);
+  pointer-events: none;
 }
 
 .section-accent {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.95),
-      rgba(255, 255, 255, 0.95)
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 255, 255, 0.92)
     ),
-    linear-gradient(to right, #1e40af, #3b82f6); /* Subtle blue gradient */
+    var(--background-gradient); /* Semi-transparent primary gradient */
+  position: relative;
+}
+
+.section-accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 112, 247, 0.1) 0%, rgba(26, 112, 247, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .section-dark {
-  background-color: #1e3a8a; /* Deep blue */
+  background: var(--background-gradient); /* Primary gradient */
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-dark::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .section-light {
   background-color: white;
-  border-top: 4px solid #3b82f6; /* Blue accent line */
+  border-top: 4px solid var(--primary-color);
+  position: relative;
 }
 
 /* Add subtle hover effects for interactive elements */
