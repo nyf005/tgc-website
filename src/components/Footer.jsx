@@ -78,10 +78,10 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-12 gap-y-6 gap-x-4 md:gap-x-2 lg:gap-x-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-12 gap-y-8 gap-x-4 md:gap-x-2 lg:gap-x-4">
                 {/* Services */}
                 <motion.div
-                  className="col-span-4 space-y-3"
+                  className="sm:col-span-1 md:col-span-4 space-y-3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -107,7 +107,7 @@ export default function Footer() {
 
                 {/* Case Studies */}
                 <motion.div
-                  className="col-span-3 space-y-3"
+                  className="sm:col-span-1 md:col-span-3 space-y-3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
@@ -133,7 +133,7 @@ export default function Footer() {
 
                 {/* Company */}
                 <motion.div
-                  className="col-span-2 space-y-3"
+                  className="sm:col-span-1 md:col-span-2 space-y-3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
@@ -159,7 +159,7 @@ export default function Footer() {
                 
                 {/* Connect */}
                 <motion.div
-                  className="col-span-3 space-y-3"
+                  className="sm:col-span-1 md:col-span-3 space-y-3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
@@ -197,9 +197,6 @@ export default function Footer() {
                 </Link>
                 <Link href="/terms" className="hover:text-blue-100 transition-colors duration-300">
                   Terms of Use
-                </Link>
-                <Link href="/sitemap" className="hover:text-blue-100 transition-colors duration-300">
-                  Sitemap
                 </Link>
               </div>
               <div>
